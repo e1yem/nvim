@@ -7,9 +7,9 @@ keymap("n", "<leader>Q", "<Cmd>q!<CR>", { desc = "Force quit" })
 -- Consistent Esc
 keymap("i", "<C-c>", "<Esc>", { desc = "Ensure that C-c works just like Esc" })
 
--- Write
-keymap("n", "<leader>w", "<Cmd>w<CR>", { desc = "Save file" })
-keymap("n", "<leader>W", "<Cmd>wa<CR>", { desc = "Save all files" })
+-- Save
+keymap("n", "<C-s>", "<Cmd>w<CR>", { desc = "Save file" })
+keymap("n", "<C-S>", "<Cmd>wa<CR>", { desc = "Save all files" })
 
 -- Better copy/paste
 keymap("v", "<Leader>y", '"+y', { desc = "Copy to system clipboard" })
@@ -37,8 +37,8 @@ keymap("v", "<M-k>", ":move '<-2<cr>gv=gv", { desc = "Move up" })
 keymap("v", "<M-j>", ":move '>+1<cr>gv=gv", { desc = "Move down" })
 
 -- Insert line above/below
-keymap("n", "<Leader>O", "O<Esc>", { desc = "Insert line above" })
-keymap("n", "<Leader>o", "o<Esc>", { desc = "Insert line below" })
+keymap("n", "lk", "O<Esc>", { desc = "Insert line above" })
+keymap("n", "lj", "o<Esc>", { desc = "Insert line below" })
 
 -- Join line
 keymap("n", "J", "mzJ`z", { desc = "Join current with next line and keep cursor position" })
