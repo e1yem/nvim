@@ -26,5 +26,6 @@ return {
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
         vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Show all git branches" })
+        vim.keymap.set("n", "<leader>fc", builtin.git_bcommits, { desc = "Show all git commits for buffer" })
     end
 }
