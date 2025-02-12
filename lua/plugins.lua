@@ -17,7 +17,10 @@ require('mini.deps').setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 add({ source = "navarasu/onedark.nvim" })
-now(function() require("onedark").load() end)
+-- now(function() require("onedark").load() end)
+
+add({ source = "catppuccin/nvim", name = "catppuccin" })
+now(function() vim.cmd.colorscheme("catppuccin") end)
 
 add({
     source = "nvim-treesitter/nvim-treesitter",
