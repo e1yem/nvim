@@ -1,5 +1,5 @@
 require("autocmds")
-require("colors")
+-- require("colors")
 require("keymaps")
 require("mini")
 require("options")

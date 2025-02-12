@@ -1,28 +1,44 @@
-local keymap = vim.keymap.set
+-- Keymaps
+-- Close buffer
+local close_buffer = function()
+    if vim.fn.len(vim.fn.filter(vim.fn.range(2, vim.fn.bufnr('$')), 'buflisted(v:val)')) == 1 then
+        vim.cmd("lua MiniStarter.open()")
+    else
+        vim.cmd("bd")
+    end
+end
+vim.keymap.set("n", "<C-w>", close_buffer, { desc = "Close current buffer" })
 
 -- Consistent Esc
-keymap("i", "<C-c>", "<Esc>", { desc = "C-c acts like Esc" })
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "C-c acts like Esc" })
 
 -- Better paste
-keymap("x", "p", '"_dP', { desc = "Keep paste buffer" })
+vim.keymap.set("x", "p", '"_dP', { desc = "Keep paste buffer" })
 
 -- Start/end of line
-keymap({ "n", "v" }, "H", "^", { desc = "Move cursor to start line" })
-keymap({ "n", "v" }, "L", "g_", { desc = "Move cursor to end line" })
+vim.keymap.set({ "n", "v" }, "H", "^", { desc = "Move cursor to start line" })
+vim.keymap.set({ "n", "v" }, "L", "g_", { desc = "Move cursor to end line" })
 
 -- Join line
-keymap("n", "J", "mzJ`z", { desc = "Join next line" })
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join next line" })
 
 -- Select all
-keymap("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
+vim.keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
 -- Split window
-keymap("n", "<leader>-", "<C-W>s", { desc = "Split below" })
-keymap("n", "<leader>|", "<C-W>v", { desc = "Split right" })
+vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split below" })
+vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split right" })
 
 -- Search
-keymap("n", "<C-f>", ":/", { desc = "Search" })
-keymap("n", "<C-F>", ":%s/", { desc = "Search and replace" })
+vim.keymap.set("n", "<C-f>", ":/", { desc = "Search" })
+vim.keymap.set("n", "<C-F>", ":%s/", { desc = "Search and replace" })
 
 -- Clear search with <esc>
-keymap({ "i", "n" }, "<esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Escape and clear hlsearch" })
+vim.keymap.set({ "i", "n" }, "<esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Escape and clear hlsearch" })
+
+-- Plugin keymaps
+-- Toggle MiniFiles
+local minifiles_toggle = function(...)
+    if not MiniFiles.close() then MiniFiles.open(...) end
+end
+vim.keymap.set("n", "<C-S-e>", minifiles_toggle, { desc = "Toggle MiniFiles" })

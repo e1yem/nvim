@@ -16,11 +16,28 @@ require('mini.deps').setup({ path = { package = path_package } })
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
+-- now(function() vim.cmd.colorscheme("minischeme") end)
+
 add({ source = "navarasu/onedark.nvim" })
 -- now(function() require("onedark").load() end)
 
 add({ source = "catppuccin/nvim", name = "catppuccin" })
-now(function() vim.cmd.colorscheme("catppuccin") end)
+-- now(function() vim.cmd.colorscheme("catppuccin") end)
+
+add({ source = "sainnhe/everforest" })
+-- now(function() vim.cmd.colorscheme("everforest") end)
+
+add({ source = "rose-pine/neovim", name = "rose-pine" })
+-- now(function() vim.cmd.colorscheme("rose-pine") end)
+
+add({ source = "loctvl842/monokai-pro.nvim" })
+-- now(function()
+--     require("monokai-pro").setup({
+--         filter = "pro"
+--     })
+--
+--     vim.cmd.colorscheme("monokai-pro")
+-- end)
 
 add({
     source = "nvim-treesitter/nvim-treesitter",
@@ -30,6 +47,7 @@ add({
 })
 now(function()
     require("nvim-treesitter.configs").setup({
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html" },
         auto_install = true,
         highlight = {
             enable = true,
