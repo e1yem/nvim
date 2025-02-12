@@ -1,0 +1,3 @@
+-- Minischeme
+-- vim.cmd.colorscheme("minischeme")
+-- Onen Dark
